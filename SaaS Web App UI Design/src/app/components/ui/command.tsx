@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Command as CommandPrimitive } from "cmdk";
 import { SearchIcon } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
 import { cn } from "./utils";
 import {
@@ -140,7 +141,7 @@ function CommandItem({
     <CommandPrimitive.Item
       data-slot="command-item"
       className={cn(
-        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground [&_svg:not([class*='text-'])]:text-muted-foreground relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50",
         className,
       )}
       {...props}
@@ -149,18 +150,18 @@ function CommandItem({
 }
 
 function CommandShortcut({
+  content,
   className,
   ...props
 }: React.ComponentProps<"span">) {
   return (
     <span
       data-slot="command-shortcut"
-      className={cn(
-        "text-muted-foreground ml-auto text-xs tracking-widest",
-        className,
-      )}
+      className={cn("ml-2 text-xs text-muted-foreground", className)}
       {...props}
-    />
+    >
+      {content}
+    </span>
   );
 }
 
@@ -171,7 +172,7 @@ export {
   CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandSeparator,
   CommandItem,
   CommandShortcut,
-  CommandSeparator,
 };
