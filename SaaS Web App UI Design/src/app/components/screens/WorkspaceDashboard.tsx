@@ -136,7 +136,7 @@ export function WorkspaceDashboard() {
         </div>
         <Button onClick={() => setDialogOpen(true)}>
           <Plus className="w-4 h-4 mr-2" />
-          New Project
+          Add New Project
         </Button>
       </div>
 
